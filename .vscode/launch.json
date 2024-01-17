@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "tema_1",
+            "request": "launch",
+            "mainClass": "tema_1",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
+            "name": "tema_2",
+            "request": "launch",
+            "mainClass": "tema_2",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
+            "name": "tema_3",
+            "request": "launch",
+            "mainClass": "tema_3",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
+            "name": "tema_4",
+            "request": "launch",
+            "mainClass": "tema_4",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
+            "name": "tema_5",
+            "request": "launch",
+            "mainClass": "tema_5",
+            "projectName": "libro_ab09a76a"
+        }
+    ]
+}
