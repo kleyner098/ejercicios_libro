@@ -67,7 +67,7 @@ public class tema6 {
         // -----------------------------------------------------------------------
 
         /* Ejercicio 12 */
-        // juegoAhorcado();
+        juegoAhorcado();
 
         // --------------------------------------------------------------------------
 
@@ -128,11 +128,11 @@ public class tema6 {
         // --------------------------------------------------------------
 
         /* Ejercicio 20 */
-        System.out.println("Introduce una frase");
-        String cadena = sc.nextLine();
-        String cadenaOrdena = ordenarFrase(cadena);
-        System.out.println(cadenaOrdena);
-        sc.close();
+        // System.out.println("Introduce una frase");
+        // String cadena = sc.nextLine();
+        // String cadenaOrdena = ordenarFrase(cadena);
+        // System.out.println(cadenaOrdena);
+        // sc.close();
 
     }
 
@@ -298,9 +298,9 @@ public class tema6 {
 
         // Mostramos el resultado
         if (acertado) {
-            System.out.println("Has ganado");
+            System.out.println("Has ganado. La palabra era " + palabraSecreta);
         } else {
-            System.out.println("Has perdido");
+            System.out.println("Has perdido. La palabra era " + palabraSecreta);
         }
 
         sc.close();
