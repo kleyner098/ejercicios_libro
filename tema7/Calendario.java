@@ -30,7 +30,7 @@ public class Calendario {
     };
 
     // Constructor
-    Calendario(int anio, int mes, int dia) {
+    public Calendario(int anio, int mes, int dia) {
         // los años puede ser 0 o mayor
         if (anio >= 0) {
             this.anio = anio;

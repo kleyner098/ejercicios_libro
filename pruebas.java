@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.io.*;
 
 
 public class pruebas {
@@ -26,6 +25,13 @@ public class pruebas {
 
         // agenda();
         
+        
+        try {
+            int c = 5/ 0;
+        } catch (Exception e) {
+            System.out.println("Soy la excepcion");
+        }
+        System.out.println("Hola");
         
     }
 }
