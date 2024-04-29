@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Cajero",
+            "request": "launch",
+            "mainClass": "Cajero",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
+            "name": "Tema10",
+            "request": "launch",
+            "mainClass": "tema10.Tema10",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
