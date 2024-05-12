@@ -84,8 +84,7 @@ public class Tema10 {
         System.out.println("Directorio de trabajo actual: " + System.getProperty("user.dir"));
 
         try {
-            // out = new BufferedWriter(new FileWriter("tema10\\actividad10_4.txt"));
-            out = new BufferedWriter(new FileWriter("C:\\Users\\kleyn\\OneDrive\\Escritorio\\prueba.txt"));
+            out = new BufferedWriter(new FileWriter("tema10\\actividad10_4.txt"));
             System.out.println("Introduce una frase o palabra. Escribe \"fin\" para cerrar el programa");
             entrada = sc.nextLine();
             while (!(entrada.equals("fin"))){

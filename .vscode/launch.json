@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "tema1",
+            "request": "launch",
+            "mainClass": "tema1",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
             "name": "Cajero",
             "request": "launch",
             "mainClass": "Cajero",
@@ -13,7 +20,7 @@
         },
         {
             "type": "java",
-            "name": "Tema10",
+            "name": "tema10.Tema10",
             "request": "launch",
             "mainClass": "tema10.Tema10",
             "projectName": "libro_ab09a76a"
