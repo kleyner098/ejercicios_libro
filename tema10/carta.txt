@@ -1,0 +1,3 @@
+hola esto es una carpeta
+servira para el ejercicio 10.14 
+donde se utilizara flujo de entrada y esa cosas.

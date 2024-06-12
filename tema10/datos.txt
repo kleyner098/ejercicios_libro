@@ -1,0 +1,2 @@
+Nombre:pepe | Edad: 12
+Nombre:pepo | Edad: 65
