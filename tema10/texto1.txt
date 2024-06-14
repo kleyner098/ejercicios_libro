@@ -1,0 +1,3 @@
+buenos dias,
+esto es un texto de prueba
+adios.

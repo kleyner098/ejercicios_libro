@@ -174,7 +174,103 @@ public class Tema10 {
          * que no se encuentre repetido).LLamaremos al fichero firmas.txt
          */
 
-         firma("pedrO");
+        // firma("pedrO");
+
+        // -----------------------------------------------------------
+
+        /*
+         * 10.17 En Linux disponemos de un comando more, al que se le pasa un fichero y
+         * lo muestra poco a poco: cada 24 líneas. Implementa un programa que funcione
+         * de forma similar.
+         */
+        // more();
+
+        // -----------------------------------------------------
+
+        /*
+         * 10.18 Escribe la función Integer[] leerEnteros(String texto), al que se le
+         * pasa una cadena y devuelve una tabla con todos enteros que aparecen en ella.
+         */
+        /*
+         * Integer numbers[] =
+         * leerEnteros("Esto es un número 1 , este es el 17 , y por último 123 ");
+         * for (int i = 0; i < numbers.length; i++) {
+         * System.out.print(numbers[i] + " ");
+         * }
+         */
+
+        // ------------------------------------------------------------
+
+        /*
+         * 10.19 Un encriptador es una aplicación que transforma un texto haciéndolo
+         * ilegible para aquellos que desconosen el código. Diseña un programa que lea
+         * un fichero de texto, lo codifique y cree un nuevo archivo con el mensaje
+         * cifrado. El afalbeto de codificación se encontrará en el codec.txt. Un
+         * ejemplo de codificación de alfabeto es:
+         * Alfabeto: a b c d e f g h i j k l m n o p q r s t u w x y z
+         * Cifrado: e m s r c y j n f x i w t a k o z d l q v b h u p g
+         */
+        // encriptador();
+
+        /*
+         * 10.20 Akgunos sistemas operativos disponen de la orden comp, que compara dos
+         * archivos y nos dicesi son iguales o distintos. Diseña esta orden de forma
+         * que, además, nos diga en qué línea y caráter se encuenta la priemara
+         * diferencia. Utiliza los fucuheros texto1.txt y texto2.txt.
+         */
+        // comp();
+
+        // --------------------------
+
+        /*
+         * Ejercicio 10.21 Diseña una pequeña agenda, que nuestre el siguiente menú:
+         * 1. Nuevo contacto.
+         * 2. Buscar por nombre.
+         * 3. Mostrar todos.
+         * 4. Salir.
+         * En ella, guardaremos el nombre y el teléfono de un máximo de 20 personas.
+         * La opción 1, nos premitirá introducir un nuevo contacto siempre y cuando la
+         * agenda no esté llena, comprobando que el nombre no se ecuentre insertado ya.
+         * La opción 2, muestra todos los teléfonos que coinciden con la cadena que se
+         * busca. Por ejemplo, sin tecleamos <<Pe>>, mostrará el teléfono de Pedro, de
+         * Pepe y de Peturia.
+         * La opción 3 mostrará un listado con toda la información (nombres y teléfono)
+         * ordenes dis alfabéticamente por el nombre.
+         * Por último, la opción 4 guarda todos los datos de la agenda en el archivo
+         * agenda.txt. La próxima vez que se ejecute la aplicación, si hay datos
+         * guardados, se cargarán en memoria
+         */
+
+        // Agenda a = new Agenda();
+        // a.iniciar();
+
+        // ------------------------------------------------
+
+        /*
+         * 10.22 Crea con un editor de texto el fichero deportistas.txt, donde se
+         * recogen los datos de un grupo de deportistas, uno en cada línea. Aparecerá el
+         * nombre completo, seguido de la edad, el peso y la estatura. La primera lñuena
+         * será el encabezamiento con los nombre de los campos. El documento tendrá la
+         * siguiente forma:
+         * Nombre Edad Peso Estatura
+         * Juan Pedro Pérez Gómez 25 70,5 1,80
+         * Ana Ruiz del Val 23 60 1,75
+         * ...
+         * Implementa un programa donde se creen un flujo de texto de entrada, a partir
+         * del cual, usando un objeto Scanner, se leerán los datos de los deportistas,
+         * que se mostrarán por pantalla. Al final aparecerán los valores medios de la
+         * edad, el peso y la estatura.
+         */
+        // deportistas();
+
+        /*
+         * 10.23 Con el fichero deportistas.txt de la Actividad de aplicación 10.22.
+         * implrementa una aplicación que lea los datos que lea los datos de los
+         * deportistas y los guarde en otros tres ficheros, uno con los nombres y las
+         * edades, otro con los nombres y los pesos y el tercero con los nombres y las
+         * estatura.
+         */
+        deportistas2();
     }
 
     /*
@@ -189,7 +285,7 @@ public class Tema10 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el nombre o la ruta del fichero que quieres leer");
         fichero = sc.nextLine();
-        // Compruebo si el fichero está vacío
+        // Compruebo si se ha dado el nombre del fichero
         if (fichero.isEmpty()) {
             fichero = "tema10/prueba.txt";
         }
@@ -399,4 +495,250 @@ public class Tema10 {
             System.out.println(e.getMessage());
         }
     }
+
+    /*
+     * 10.17 En Linux disponemos de un comando more, al que se le pasa un fichero y
+     * lo muestra poco a poco: cada 24 líneas. Implementa un programa que funcione
+     * de forma similar.
+     */
+    static public void more() {
+        /*
+         * Para este ejercicio usare el fichero carta.txt y mostrare el fichero de dos
+         * en dos. Otra aclaración, es que obligatoriamente tenemos que pulsar enter, ya
+         * que para detectar que tecla se está pulsado necesitaremos una dependencia o
+         * mediante eventos con el paquete Swing
+         */
+
+        File file = new File("tema10/carta.txt");
+        Scanner sc = new Scanner(System.in);
+        int numFilas = 2; // Número de fila a mostrasr
+        String cadena = null;
+        String entrada = null;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            System.out.println("Pulsa enter para continuar leyendo el archivo o q para cerrar");
+            // El bucle continuará hasta que el archivo se acabe o cuando se escriba q
+            do {
+                entrada = sc.nextLine();
+                if (!(entrada.toLowerCase().equals("q"))) {
+                    for (int i = 0; i < numFilas; i++) {
+                        cadena = reader.readLine();
+                        if (cadena == null) {
+                            System.out.println("\nFin del archivo");
+                            break;
+                        } else {
+                            System.out.println(cadena);
+                        }
+                    }
+
+                } else {
+                    System.out.println("\nCerrando archivo...");
+                    break;
+                }
+            } while (cadena != null);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /*
+     * 10.18 Escribe la función Integer[] leerEnteros(String texto), al que se le
+     * pasa una cadena y devuelve una tabla con todos enteros que aparecen en ella.
+     */
+    static public Integer[] leerEnteros(String texto) {
+        Integer numeros[] = new Integer[0];
+        String palabras[] = texto.split(" ");
+        Scanner sc;
+        for (int i = 0; i < palabras.length; i++) {
+            sc = new Scanner(palabras[i]);
+            if (sc.hasNextInt()) {
+                numeros = Arrays.copyOf(numeros, numeros.length + 1);
+                numeros[numeros.length - 1] = sc.nextInt();
+            }
+        }
+
+        return numeros;
+    }
+
+    /*
+     * 10.19 Un encriptador es una aplicación que transforma un texto haciéndolo
+     * ilegible para aquellos que desconosen el código. Diseña un programa que lea
+     * un fichero de texto, lo codifique y cree un nuevo archivo con el mensaje
+     * cifrado. El afalbeto de codificación se encontrará en el codec.txt. Un
+     * ejemplo de codificación de alfabeto es:
+     * Alfabeto: a b c d e f g h i j k l m n o p q r s t u w x y z
+     * Cifrado: e m s r c y j n f x i w t a k o z d l q v b h u p g
+     */
+    static public void encriptador() {
+        char alfabeto[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                's', 't', 'u', 'w', 'x', 'y', 'z' };
+        char cifrado[] = { 'e', 'm', 's', 'r', 'c', 'y', 'j', 'n', 'f', 'x', 'i', 'w', 't', 'a', 'k', 'z', 'd', 'l',
+                'q', 'v', 'b', 'h', 'u', 'p', 'g' };
+        File file = new File("tema10/carta.txt");
+        int charPosition = 0;
+        boolean cifrar;
+        try (FileReader reader = new FileReader(file);
+                FileWriter writer = new FileWriter("tema10/codec.txt")) {
+
+            int character = reader.read();
+            while (character != -1) {
+                cifrar = false;
+                for (int i = 0; i < alfabeto.length; i++) {
+                    if (alfabeto[i] == (char) character) {
+                        cifrar = true;
+                        charPosition = i;
+                    }
+                }
+                if (cifrar) {
+                    writer.write((char) cifrado[charPosition]);
+                } else {
+                    writer.write((char) character);
+                }
+                character = reader.read();
+            }
+            System.out.println("Archivo cifrado");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /*
+     * 10.20 Akgunos sistemas operativos disponen de la orden comp, que compara dos
+     * archivos y nos dicesi son iguales o distintos. Diseña esta orden de forma
+     * que, además, nos diga en qué línea y caráter se encuenta la priemara
+     * diferencia. Utiliza los fucuheros texto1.txt y texto2.txt.
+     */
+    static public void comp() {
+        File texto1 = new File("tema10/texto1.txt");
+        File texto2 = new File("tema10/texto2.txt");
+        int numFila = 1;
+        Boolean diferente = false;
+        int postDiferente = 0;
+        char carateres[] = new char[2];
+        try (BufferedReader reader1 = new BufferedReader(new FileReader(texto1));
+                BufferedReader reader2 = new BufferedReader(new FileReader(texto2));) {
+            String cadena1 = reader1.readLine();
+            String cadena2 = reader2.readLine();
+            while (cadena1 != null && cadena2 != null) {
+                if (cadena1.length() == cadena2.length()) {
+                    for (int i = 0; i < cadena1.length(); i++) {
+                        if (cadena1.charAt(i) != cadena2.charAt(i)) {
+                            diferente = true;
+                            carateres[0] = cadena1.charAt(i);
+                            carateres[1] = cadena2.charAt(i);
+                            postDiferente = i + 1;
+                            break;
+                        }
+                    }
+                }
+                cadena1 = reader1.readLine();
+                cadena2 = reader2.readLine();
+                if (!diferente) {
+                    numFila++;
+                }
+
+            }
+
+            if (diferente) {
+                System.out.println("Archivos diferentes: Línea " + numFila + ", posisión " + postDiferente
+                        + ", los caracteres que se diferencia son '" + carateres[0] + "' y '" + carateres[1] + "'");
+            } else {
+                System.out.println("No han encontrado diferencia en los archivos");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /*
+     * 10.22 Crea con un editor de texto el fichero deportistas.txt, donde se
+     * recogen los datos de un grupo de deportistas, uno en cada línea. Aparecerá el
+     * nombre completo, seguido de la edad, el peso y la estatura. La primera lñuena
+     * será el encabezamiento con los nombre de los campos. El documento tendrá la
+     * siguiente forma:
+     * Nombre Edad Peso Estatura
+     * Juan Pedro Pérez Gómez 25 70,5 1,80
+     * Ana Ruiz del Val 23 60 1,75
+     * ...
+     * Implementa un programa donde se creen un flujo de texto de entrada, a partir
+     * del cual, usando un objeto Scanner, se leerán los datos de los deportistas,
+     * que se mostrarán por pantalla. Al final aparecerán los valores medios de la
+     * edad, el peso y la estatura.
+     */
+    static public void deportistas() {
+        File file = new File("tema10/deportistas.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String cad = reader.readLine();
+            double edadMedia, pesoMedia, estaturaMedia;
+            double edadSuma = 0, pesoSuma = 0, estaturaSuma = 0;
+            int numlinea = 0;
+            String linea[] = new String[4];
+            while (cad != null) {
+                if (numlinea != 0) {
+
+                    linea = cad.split("\\s{2,}"); // expresión regular que divide la cadena si hay 2 o más espacio en
+                                                  // blanco
+                    edadSuma += Double.parseDouble(linea[1]);
+                    pesoSuma += Double.parseDouble(linea[2]);
+                    estaturaSuma += Double.parseDouble(linea[3]);
+                    System.out.println(cad);
+                }
+                numlinea++;
+                cad = reader.readLine();
+            }
+            edadMedia = edadSuma / (numlinea - 1);
+            pesoMedia = pesoSuma / (numlinea - 1);
+            estaturaMedia = estaturaSuma / (numlinea - 1);
+            System.out.println("La edad media es de " + edadMedia + ", el peso media es de " + pesoMedia
+                    + " y la estatura media es de " + estaturaMedia);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /*
+     * 10.23 Con el fichero deportistas.txt de la Actividad de aplicación 10.22.
+     * implrementa una aplicación que lea los datos que lea los datos de los
+     * deportistas y los guarde en otros tres ficheros, uno con los nombres y las
+     * edades, otro con los nombres y los pesos y el tercero con los nombres y las
+     * estatura.
+     */
+    static public void deportistas2() {
+        File file = new File("tema10/deportistas.txt");
+        File edadFile = new File("tema10/deporEdad.txt");
+        File pesoFile = new File("tema10/deporPeso.txt");
+        File alturaFile = new File("tema10/deporAltura.txt");
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));
+                BufferedWriter writerEdad = new BufferedWriter(new FileWriter(edadFile, true));
+                BufferedWriter writerPeso = new BufferedWriter(new FileWriter(pesoFile, true));
+                BufferedWriter writerAltrua = new BufferedWriter(new FileWriter(alturaFile, true))) {
+            String cad = reader.readLine();
+            cad = reader.readLine();
+            String linea[] = new String[4];
+            String nombre;
+            int edad;
+            double altura, peso;
+            while (cad != null) {
+                linea = cad.split("\\s{2,}"); // expresión regular que divide la cadena si hay 2 o más espacio en
+                                              // blanco
+                nombre = linea[0];
+                edad = Integer.parseInt(linea[1]);
+                peso = Double.parseDouble(linea[2]);
+                altura = Double.parseDouble(linea[3]);
+
+                writerEdad.write(nombre + "-" + edad);
+                writerEdad.newLine();
+                writerPeso.write(nombre + "-" + peso);
+                writerPeso.newLine();
+                writerAltrua.write(nombre + "-" + altura);
+                writerAltrua.newLine();
+
+                cad = reader.readLine();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    
 }

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Agenda",
+            "request": "launch",
+            "mainClass": "tema10.Agenda",
+            "projectName": "libro_ab09a76a"
+        },
+        {
+            "type": "java",
             "name": "tema1",
             "request": "launch",
             "mainClass": "tema1",
